@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthorService } from '../author.service';
 
 @Component({
-  selector: 'app-author',
+  selector: 'author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.css']
 })
