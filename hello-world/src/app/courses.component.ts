@@ -6,6 +6,9 @@ import { CoursesService } from './courses.service';
     selector: 'courses',
     template: `
         <h2>List of Courses</h2>
+
+        <button class="btn btn-primary">Save</button>
+
         <ul>
         <li *ngFor="let course of courses">
             {{ course }}
