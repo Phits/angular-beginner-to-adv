@@ -15,7 +15,9 @@ library.add(fas, far);
 })
 export class FavoriteComponent implements OnInit {
   title = 'app';
-  faStar = faStar;
+  favorited: boolean = false;
+  // farStar = ['far', 'star'];
+  // fasStar = ['fas', 'star'];
 
   constructor() { }
 
