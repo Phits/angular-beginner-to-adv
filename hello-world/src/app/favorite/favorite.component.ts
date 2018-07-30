@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -13,13 +13,17 @@ library.add(fas, far);
 })
 export class FavoriteComponent implements OnInit {
   title = 'app';
-  favorited: boolean = false;
+  @Input('isFavorite') isSelected: boolean;
   // farStar = ['far', 'star'];
   // fasStar = ['fas', 'star'];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick() {
+    this.isSelected = !this.isSelected;
   }
 
 }
