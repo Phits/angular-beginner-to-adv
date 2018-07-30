@@ -8,6 +8,10 @@ import { CoursesService } from './courses.service';
     selector: 'courses',
     template: `
 
+    <h2>Title Case Custom</h2>
+    <input [(ngModel)]="titleCustom">
+    {{titleCustom | titleCaseCustom}}
+
         <h2>Title Case</h2>
         <input [(ngModel)]="titleCase" (keyup)="transformTitle()">
 
@@ -32,6 +36,7 @@ import { CoursesService } from './courses.service';
 export class CoursesComponent {
     isActive = false;
     titleCase: string = 'enter a title';
+    titleCustom: string;
     title = "List of Courses";
     courses;
     email = "john@fitz.com";
