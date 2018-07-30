@@ -9,6 +9,7 @@ import { CoursesService } from './courses.service';
 import { AuthorComponent } from './author/author.component';
 import { AuthorService } from './author.service';
 import { SummaryPipe } from './summary.pipe';
+import { TitleCasePipe } from '@angular/common';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -19,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CourseComponent,
     AuthorComponent,
     SummaryPipe,
-    FavoriteComponent
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   providers: [
     CoursesService,
-    AuthorService
+    AuthorService,
+    TitleCasePipe
   ],
   bootstrap: [AppComponent]
 })

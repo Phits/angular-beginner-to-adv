@@ -1,10 +1,15 @@
 
 import { Component } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { CoursesService } from './courses.service';
+
 
 @Component({
     selector: 'courses',
     template: `
+
+        <h2>Title Case</h2>
+        <input [(ngModel)]="titleCase" (keyup)="transformTitle()">
 
         <p>{{text | summary:10}}</p>
 
@@ -26,13 +31,23 @@ import { CoursesService } from './courses.service';
 
 export class CoursesComponent {
     isActive = false;
+    titleCase: string = 'enter a title';
     title = "List of Courses";
     courses;
     email = "john@fitz.com";
     text ="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis felis dignissim tempor ultrices. Nulla vulputate congue auctor. Nullam accumsan metus a imperdiet sollicitudin. Vestibulum finibus, risus at varius tincidunt, massa purus tempor purus, vitae consequat dolor felis at lectus. Donec vulputate, elit id egestas mollis, velit leo elementum metus, et pulvinar nibh orci at velit. Donec faucibus risus semper porta porta. Sed porttitor nisl porta arcu auctor aliquet.";
 
-    constructor(service: CoursesService) {
+    constructor(service: CoursesService, private titlecasePipe:TitleCasePipe) {
         this.courses = service.getCourses();
+    }
+
+    ngOnInit() {
+       this.transformTitle();
+    }
+
+    transformTitle() {
+        console.log("transformTitle");
+        this.titleCase = this.titlecasePipe.transform(this.titleCase);
     }
 
     onKeyUp() {
