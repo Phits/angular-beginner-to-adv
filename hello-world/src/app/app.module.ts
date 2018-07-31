@@ -13,6 +13,7 @@ import { TitleCasePipe } from '@angular/common';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TitleCaseCustomPipe } from './title-case-custom.pipe';
+import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TitleCaseCustomPipe } from './title-case-custom.pipe';
     AuthorComponent,
     SummaryPipe,
     FavoriteComponent,
-    TitleCaseCustomPipe
+    TitleCaseCustomPipe,
+    PanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,14 @@
-<h1>Angular</h1>
+<h1>Angular Training</h1>
 
-<favorite [isFavorite]="post.isFavorite"></favorite>
+<bootstrap-panel>
+    
+    <ng-container class="title">Card Title</ng-container >
+    <div class="text">
+        Text for card.
+    </div>
+</bootstrap-panel>
+
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
 
 <courses></courses>
 <author></author>
