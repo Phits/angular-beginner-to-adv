@@ -1,10 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-
-library.add(fas, far);
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'favorite',

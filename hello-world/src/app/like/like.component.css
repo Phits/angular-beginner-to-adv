@@ -1,0 +1,12 @@
+
+.heart {
+    cursor: pointer;
+}
+
+.heart.grey {
+    color: #ccc;
+}
+
+.heart.pink {
+    color: hotpink;
+}
