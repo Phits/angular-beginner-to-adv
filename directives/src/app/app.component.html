@@ -1,0 +1,70 @@
+
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+
+<h3>Creating Custom Directives</h3>
+<input type="text" [appInputFormat]="'uppercase'">
+
+<h3>Safe Traveersal Operator</h3>
+<span>{{ task.assignee?.name }}</span>
+
+<h3>ngStyle</h3>
+<button
+  [ngStyle]="{
+    'backgroundColor': canSave ? 'blue': 'gray',
+    'color': canSave ? 'white': 'black',
+    'color': canSave ? 'bold': 'normal'
+  }">
+  Save 
+</button>
+
+<h3>ngFor and TrackBy</h3>
+<button (click)="loadCourses()">Load Course</button>
+<ul>
+  <li *ngFor="let course of courses; trackBy: trackCourse">
+    {{ course.name }}
+  </li>
+</ul>
+
+<h3>ngFor and Change Detection</h3>
+<button (click)="onAdd()">Add Course</button>
+<ul>
+  <li *ngFor="let course of courses; index as i; even as isEven">
+    {{ i }} {{ course.name }} <button (click)="onChange(course)">Rename Course</button> <span *ngIf="isEven">Even</span>
+  </li>
+</ul>
+
+<h3>ngSwitchCase</h3>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">Map View</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List View</a>
+  </li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Select a Tab</div>
+</div>
+
+<!-- <h3>Hidden Property</h3>
+<div [hidden]="courses.length == 0">
+  List of courses.
+</div>
+<div [hidden]="courses.length > 0">
+  No courses yet.
+</div>
+
+<h3>ngIf</h3>
+<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+  There are courses.
+</ng-template>
+<ng-template #noCourses>
+  There are no courses.
+</ng-template> -->
