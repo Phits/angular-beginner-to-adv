@@ -1,0 +1,21 @@
+.arrow-up, .arrow-down  {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.card-header {
+    cursor: pointer;
+}
+
+.expanded {
+    background-color: grey;
+}
+
+.expanded .btn-link {
+    color: white;
+}
+
+.card {
+    margin-bottom: 5px;
+}

@@ -1,0 +1,24 @@
+
+
+  <div class="card">
+    <div class="card-header" id="headingTwo" (click)="toggle(idContent)" data-toggle="collapse" [attr.data-target]="'#' + idContent" aria-expanded="false"
+    aria-controls="collapseTwo" [class.expanded]="!isCollapsed">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" >
+          {{title}}
+        </button>
+      </h5>
+      <!-- <fa-icon [icon]="isCollapsed ? ['fas', 'arrow-down'] : ['fas', 'arrow-up']" [ngClass]="isCollapsed ? ['arrow-down'] : ['arrow-up']" class="fas"></fa-icon> -->
+
+      <fa-icon [hidden]="!isCollapsed" [icon]="['fas', 'arrow-down']" [ngClass]="['arrow-down']" class="fas"></fa-icon>
+      <fa-icon [hidden]="isCollapsed"  [icon]="['fas', 'arrow-up']" [ngClass]="['arrow-up']" class="fas"></fa-icon>
+
+    </div>
+
+    <div [id]="idContent" class="collapse" aria-labelledby="headingTwo" >
+      <div class="card-body">
+       <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+
