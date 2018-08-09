@@ -16,3 +16,12 @@ body {
 .alert, .checkbox {
     margin-top: 5px;
 }
+
+h3 {
+    margin: 30px 0 10px 0
+}
+
+li {
+    margin: 5px 0;
+    cursor: pointer;
+}
