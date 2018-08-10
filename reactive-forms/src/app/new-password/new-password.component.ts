@@ -9,7 +9,7 @@ import { PasswordValidators } from './password.validators';
 })
 export class NewPasswordComponent {
 
-  formPass = new FormGroup({
+  form = new FormGroup({
     oldPassword: new FormControl('',
       Validators.required,
       PasswordValidators.checkOldPassword
@@ -20,21 +20,21 @@ export class NewPasswordComponent {
   });
 
   get oldPassword() {
-    return this.formPass.get('oldPassword');
+    return this.form.get('oldPassword');
   }
 
   get newPassword() {
-    return this.formPass.get('newPassword');
+    return this.form.get('newPassword');
   }
 
   get confirmPassword() {
-    return this.formPass.get('confirmPassword');
+    return this.form.get('confirmPassword');
   }
 
   change() {
-    this.formPass.setErrors({
-      invalidLogin: true
-    });
+    // this.formPass.setErrors({
+    //   invalidLogin: true
+    // });
   }
 
 }
