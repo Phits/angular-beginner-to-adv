@@ -16,7 +16,8 @@ export class NewPasswordComponent {
     ),
     newPassword: new FormControl('', Validators.required
     ),
-    confirmPassword: new FormControl('', Validators.required)
+    confirmPassword: new FormControl('', Validators.required),
+    confirmedPassword: new FormControl
   });
 
   get oldPassword() {
@@ -31,8 +32,16 @@ export class NewPasswordComponent {
     return this.form.get('confirmPassword');
   }
 
+  get confirmedPassword() {
+    if (this.newPassword.value === this.confirmPassword.value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   change() {
-    // this.formPass.setErrors({
+    // this.form.setErrors({
     //   invalidLogin: true
     // });
   }
