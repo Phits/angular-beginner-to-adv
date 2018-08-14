@@ -9,16 +9,16 @@ import { PostService } from '../services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: any[];
-
+  
 
   constructor(private service: PostService) {
-
+     
   }
 
   ngOnInit() {
     this.service.getPosts().subscribe(response => {
       this.posts = response.json();
-    })
+     })
 
     //  this.http.get(this.url).subscribe(response => {
     //   this.posts = response.json();
@@ -31,29 +31,22 @@ export class PostsComponent implements OnInit {
     let post = { title: input.value }
     input.value = '';
 
-    this.service.getPosts().subscribe(response => {
+    this.service.createPost(post).subscribe(response => {
       post['id'] = response.json().id;
       this.posts.splice(0, 0, post);
       console.log(response.json());
     });
   }
 
-  // updatePost(post) {
-  //   // this.http.put(this.url, JSON.stringify(post));
-  //   this.service.getPosts().subscribe(response => {
-  //     console.log(response.json());
-  //   })
-  // }
-
-  // updatePost(post) {
-  //    // this.http.put(this.url, JSON.stringify(post));
-  //   this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true })).subscribe(response => {
-  //     console.log(response.json());
-  //   })
-  // }
+  updatePost(post) {
+     // this.http.put(this.url, JSON.stringify(post));
+    this.service.updatePost(post).subscribe(response => {
+      console.log(response.json());
+    })
+  }
 
   deletePost(post) {
-    this.service.getPosts().subscribe(response => {
+    this.service.deletePost(post).subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
     })
