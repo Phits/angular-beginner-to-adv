@@ -19,9 +19,6 @@ export class PasswordValidators {
         let newPassword = control.get('newPassword');
         let confirmPassword = control.get('confirmPassword');
 
-        console.log('newPassword', newPassword.value);
-        console.log('confirmPassword', confirmPassword.value);
-
         if (newPassword.value !== confirmPassword.value)
             return { passworldsShouldMatch: true };
 
