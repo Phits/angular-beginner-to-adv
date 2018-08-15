@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { AppError } from '../common/app-error';
+import { NotFoundError } from '../common/not-found-error';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -55,10 +57,11 @@ export class PostsComponent implements OnInit {
     this.service.deletePost(post.id).subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
-      console.log(response);
+      console.log('Response is ', response);
     },
       (error: AppError) => {
-        if (error instanceof AppError)
+        console.log('error: AppError', error);
+        if (error instanceof NotFoundError)
           alert('This post has already been deleted.');
         else {
           alert('An unexpected error occurred.');
