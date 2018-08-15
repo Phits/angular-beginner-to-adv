@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
+import { BadRequestError } from '../common/bad-request-request-error'
+
 
 
 @Component({
@@ -19,9 +21,6 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.service.getPosts().subscribe(response => {
       this.posts = response.json();
-    }, error => {
-      alert('An unexpected error occured.');
-      console.log(error);
     });
   }
 
@@ -30,25 +29,13 @@ export class PostsComponent implements OnInit {
     input.value = '';
 
     this.service.createPost(post).subscribe(response => {
-      post['id'] = response.json().id;
+      // post['id'] = response.json().id;
       this.posts.splice(0, 0, post);
-    }, (error: Response) => {
-      alert('An unexpected error occured.');
-      console.log(error);
-    });
-  }
-
-  updatePost(post) {
-    // this.http.put(this.url, JSON.stringify(post));
-    this.service.updatePost(post).subscribe(response => {
-      console.log(response.json());
-    }, (error: Response) => {
-      if (error.status === 400) {
-      //  this.form.setErrors(error.json());
-      } else {
-        alert('An unexpected error occured.');
+    }, (error: AppError) => {
+      if (error instanceof BadRequestError) {
+        alert('Bad Request Error.');
         console.log(error);
-      }
+      } else throw error;
     });
   }
 
@@ -61,11 +48,20 @@ export class PostsComponent implements OnInit {
       (error: AppError) => {
         console.log('error: AppError', error);
         if (error instanceof NotFoundError)
-          alert('This post has already been deleted.');
-        else {
-          alert('An unexpected error occurred.');
-          console.log(error);
-        }
+          alert('This post does not exist at http://jsonplaceholder.typicode.com/posts ');
+        else throw error;
       });
   }
+
+  updatePost(post) {
+    // this.http.put(this.url, JSON.stringify(post));
+    this.service.updatePost(post).subscribe(response => {
+      console.log(response.json());
+    }, (error: Response) => {
+      if (error.status === 400) {
+        //  this.form.setErrors(error.json());
+      }
+    });
+  }
+
 }
