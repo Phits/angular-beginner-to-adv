@@ -13,7 +13,7 @@ import { PostService } from './services/post.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [
     PostService

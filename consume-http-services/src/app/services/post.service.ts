@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { stringify } from '@angular/compiler/src/util';
+import { of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,13 @@ export class PostService {
   }
 
   deletePost(id) {
-    return this.http.delete(this.url + '/' + id);
+    // return this.http.delete(this.url + '/' + id);
+
+    return this.http.delete(this.url + '/' + id).pipe(catchError((error) => {
+      //intercept the respons error and displace it to the console
+      // console.log(error);
+      return of(error);
+    }) as any);
+
   }
 }
