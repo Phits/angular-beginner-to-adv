@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
 import { BadRequestError } from '../common/bad-request-request-error'
+import { Url } from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -12,41 +13,45 @@ import { BadRequestError } from '../common/bad-request-request-error'
 export class PostService {
   private url = 'http://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   getPosts() {
-   return this.http.get(this.url);
+    return this.http.get(this.url);
+  }
+
+  updatePost(post) {
+    // return  this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }));
+
+    return this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true })).pipe(catchError((error) => {
+      return this.handleError(error);
+    }) as any);
+
   }
 
   createPost(post) {
     // return this.http.post(this.url, JSON.stringify(post));
     return this.http.post(this.url, JSON.stringify(post)).pipe(catchError((error) => {
-      console.log('error.status', error);
-      if(error.status === 400) {
-        return throwError(new BadRequestError(error.json()))
-      }  else {
-        return throwError(new AppError(error.json()));
-        // return of(error);
-      }
+      return this.handleError(error);
     }) as any);
   }
 
   deletePost(id) {
     // return this.http.delete(this.url + '/' + id);
     return this.http.delete(this.url + '/' + id).pipe(catchError((error) => {
-      //intercept the respons error and displace it to the console
-      console.log('error.status', error);
-      if(error.status === 404) {
-        return throwError(new NotFoundError())
-      } else {
-        return throwError(new AppError(error));
-        // return of(error);
-      }
+        return this.handleError(error);
     }) as any);
   }
 
-  updatePost(post) {
-    return  this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }));
+  private handleError(error: Response) {
+ 
+    if (error.status === 400)
+      return throwError(new NotFoundError())
+
+    if (error.status === 404)
+      return throwError(new NotFoundError())
+
+    return throwError(new AppError(error));
+   
   }
 
 }

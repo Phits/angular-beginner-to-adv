@@ -34,7 +34,7 @@ export class PostsComponent implements OnInit {
     }, (error: AppError) => {
       if (error instanceof BadRequestError) {
         alert('Bad Request Error.');
-        console.log(error);
+        // console.log(error);
       } else throw error;
     });
   }
@@ -43,10 +43,10 @@ export class PostsComponent implements OnInit {
     this.service.deletePost(post.id).subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
-      console.log('Response is ', response);
+      // console.log('Response is ', response);
     },
       (error: AppError) => {
-        console.log('error: AppError', error);
+        // console.log('error: AppError', error);
         if (error instanceof NotFoundError)
           alert('This post does not exist at http://jsonplaceholder.typicode.com/posts ');
         else throw error;
@@ -56,7 +56,7 @@ export class PostsComponent implements OnInit {
   updatePost(post) {
     // this.http.put(this.url, JSON.stringify(post));
     this.service.updatePost(post).subscribe(response => {
-      console.log(response.json());
+      // console.log(response);
     }, (error: Response) => {
       if (error.status === 400) {
         //  this.form.setErrors(error.json());
