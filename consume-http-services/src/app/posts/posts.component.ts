@@ -12,16 +12,14 @@ import { BadRequestError } from '../common/bad-request-request-error'
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  posts: any[];
+  posts: any;
 
   constructor(private service: PostService) {
 
   }
 
   ngOnInit() {
-    this.service.getAll().subscribe(response => {
-      this.posts = response.json();
-    });
+    this.service.getAll().subscribe(posts => this.posts = posts);
   }
 
   createPost(input: HTMLInputElement) {
