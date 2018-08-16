@@ -26,10 +26,11 @@ export class PostsComponent implements OnInit {
     let post = { title: input.value }
     input.value = '';
 
-    this.service.create(post).subscribe(response => {
-      // post['id'] = response.json().id;
-      this.posts.splice(0, 0, post);
-    }, (error: AppError) => {
+    this.service.create(post).subscribe(newPost => {
+      this.posts.splice(0, 0, post)
+    }
+     
+    , (error: AppError) => {
       if (error instanceof BadRequestError) {
         alert('Bad Request Error.');
         // console.log(error);
@@ -37,8 +38,20 @@ export class PostsComponent implements OnInit {
     });
   }
 
+  updatePost(post) {
+    // this.http.put(this.url, JSON.stringify(post));
+    this.service.update(post).subscribe(posts => {
+      // console.log(response);
+    }, (error: Response) => {
+      if (error.status === 400) {
+        //  this.form.setErrors(error.json());
+      }
+    });
+  }
+
   deletePost(post) {
-    this.service.delete(post.id).subscribe(response => {
+    this.service.delete(post.id).subscribe(
+      () => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
       // console.log('Response is ', response);
@@ -49,17 +62,6 @@ export class PostsComponent implements OnInit {
           alert('This post does not exist at http://jsonplaceholder.typicode.com/posts ');
         else throw error;
       });
-  }
-
-  updatePost(post) {
-    // this.http.put(this.url, JSON.stringify(post));
-    this.service.update(post).subscribe(response => {
-      // console.log(response);
-    }, (error: Response) => {
-      if (error.status === 400) {
-        //  this.form.setErrors(error.json());
-      }
-    });
   }
 
 }

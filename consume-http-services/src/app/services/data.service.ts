@@ -13,33 +13,30 @@ export class DataService {
     constructor(private url: string, private http: Http) { }
 
     getAll() {
-        // return this.http.get(this.url);
-
         return this.http.get(this.url)
             .pipe(map(response => response.json())).pipe(catchError((error) => {
                 return this.handleError(error);
             }) as any);
-
-        // return this.http.get(this.url).pipe(catchError((error) => {
-        //     return this.handleError(error);
-        //   }) as any);
     }
 
     create(resource) {
-        return this.http.post(this.url, JSON.stringify(resource)).pipe(catchError((error) => {
+        return this.http.post(this.url, JSON.stringify(resource))
+        .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
         }) as any);
     }
 
     update(resource) {
-        return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true })).pipe(catchError((error) => {
+        return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true }))
+        .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
         }) as any);
 
     }
 
     delete(id) {
-        return this.http.delete(this.url + '/' + id).pipe(catchError((error) => {
+        return this.http.delete(this.url + '/' + id)
+        .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
         }) as any);
     }
