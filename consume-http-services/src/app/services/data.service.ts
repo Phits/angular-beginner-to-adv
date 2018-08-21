@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
@@ -20,6 +20,8 @@ export class DataService {
     }
 
     create(resource) {
+        // return throwError(new AppError());
+        
         return this.http.post(this.url, JSON.stringify(resource))
         .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
@@ -35,6 +37,8 @@ export class DataService {
     }
 
     delete(id) {
+        // return throwError(new AppError());
+
         return this.http.delete(this.url + '/' + id)
         .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
