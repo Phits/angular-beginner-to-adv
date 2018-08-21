@@ -23,7 +23,7 @@ export class DataService {
         return this.http.post(this.url, JSON.stringify(resource))
         .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
-        }) as any);
+        }));
     }
 
     update(resource) {
