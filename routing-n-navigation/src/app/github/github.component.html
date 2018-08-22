@@ -1,0 +1,9 @@
+<div *ngFor="let github of githubs" class="row">
+  <div class="col-md-2 margins">
+    <img src="{{ github.avatar_url }} " alt="Smiley face" height="42" width="42">
+  </div>
+  <div class="col-md-10 margins">
+    <h5>{{ github.login }}</h5>
+    <a href="{{ github.html_url }}" target="_blank">{{ github.html_url }}</a>
+  </div>
+</div>
