@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostsComponent } from './posts/posts.component'
+// import { PostsComponent } from './posts/posts.component'
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,5 @@ import { PostsComponent } from './posts/posts.component'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Consumming HTTP Services';
+  title = 'Routing and Navigation';
 }
