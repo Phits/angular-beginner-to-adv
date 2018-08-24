@@ -28,7 +28,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'profile/:username', component: GithubProfileComponent },
+      { path: 'profile/:username/:login', component: GithubProfileComponent },
       { path: 'followers', component: GithubComponent },
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent }

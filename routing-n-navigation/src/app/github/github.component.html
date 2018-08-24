@@ -3,7 +3,7 @@
     <img src="{{ github.avatar_url }} " alt="Smiley face" height="42" width="42">
   </div>
   <div class="col-md-10 margins">
-    <h5>{{ github.login }}</h5>
+    <h5><a [routerLink]="['/profile', github.id, github.login]">{{ github.login }}</a></h5>
     <a href="{{ github.html_url }}" target="_blank">{{ github.html_url }}</a>
   </div>
 </div>

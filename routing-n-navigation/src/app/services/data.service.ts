@@ -14,9 +14,9 @@ export class DataService {
 
     getAll() {
         return this.http.get(this.url)
-            .pipe(map(response => response.json())).pipe(catchError((error) => {
-                return this.handleError(error);
-            }) as any);
+        .pipe(map(response => response.json())).pipe(catchError((error) => {
+            return this.handleError(error);
+        }));
     }
 
     create(resource) {
