@@ -13,12 +13,13 @@ export class ArchiveComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.year = this.route.snapshot.paramMap.get('year');
-    this.month = this.route.snapshot.paramMap.get('month');
+    let params = this.route.snapshot.paramMap;
+    this.year = params.get('year');
+    this.month = params.get('month');
   }
 
-  submit() {
-    this.router.navigate([''], {})
+  viewAll() {
+    this.router.navigate(['/'])
   }
 
 }

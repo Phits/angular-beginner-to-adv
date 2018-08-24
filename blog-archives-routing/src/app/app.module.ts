@@ -18,7 +18,6 @@ import { ArchiveComponent } from './archive/archive.component';
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
       { path: 'archive/:year/:month', component: ArchiveComponent },
       { path: '**', component: NotFoundComponent }
     ])

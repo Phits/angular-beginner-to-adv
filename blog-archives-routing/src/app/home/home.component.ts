@@ -9,17 +9,14 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   archives = [
     {
-      id: 0,
       year: 2017,
       month: 1
     },
     {
-      id: 1,
       year: 2017,
       month: 2
     },
     {
-      id: 2,
       year: 2017,
       month: 3
     }
