@@ -18,16 +18,16 @@ export class GithubProfileComponent implements OnInit {
     })
   }
 
-  // ngOnInit() {
-  //   let username = this.route.snapshot.paramMap.get('username');
-  //   console.log("username is ", username);
+  ngOnInit() {
+    // let username = this.route.snapshot.paramMap.get('username');
+    // console.log("username is ", username);
 
-  //   this.route.paramMap.subscribe(params => {
-  //     console.log('params is', params);
-  //     let username = +params.get('username');
-  //     console.log("username is ", username);
-  //   })
-  // }
+    // this.route.paramMap.subscribe(params => {
+    //   console.log('params is', params);
+    //   let username = +params.get('username');
+    //   console.log("username is ", username);
+    // })
+  }
 
 
 }
