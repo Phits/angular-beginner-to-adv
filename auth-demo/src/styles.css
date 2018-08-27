@@ -4,3 +4,8 @@ body {
     padding: 20px
 }
 
+li a {
+    color: #007bff;
+    cursor: pointer;
+}
+

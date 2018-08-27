@@ -1,20 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
   constructor(private http: Http) {
   }
 
-  login(credentials) { 
-   return this.http.post('/api/authenticate', 
-      JSON.stringify(credentials));
+  login(credentials) {
+    return this.http.post('/api/authenticate',
+      JSON.stringify(credentials)).pipe(map(response => {
+        let result = response.json();
+        if (result && result.token) {
+          localStorage.setItem('token', result.token);
+          return true;
+        } else {
+          return false;
+        }
+      }
+    ));
   }
 
-  logout() { 
+  logout() {
+    localStorage.removeItem('token');
   }
 
-  isLoggedIn() { 
+  isLoggedIn() {
     return false;
   }
 }

@@ -1,6 +1,6 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class OrderService {
@@ -11,9 +11,6 @@ export class OrderService {
   getOrders() {
     return this.http.get('/api/orders')
       .pipe(map(response => response.json()));
-
-
-    // .map(response => response.json());
   }
 
 }
