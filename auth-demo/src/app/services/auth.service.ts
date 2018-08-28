@@ -19,7 +19,7 @@ export class AuthService {
           return false;
         }
       }
-    ));
+      ));
   }
 
   logout() {
@@ -27,19 +27,27 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    let jwtHelper = new JwtHelperService();
-    let token = localStorage.getItem('token');
 
-    if(!token) 
+    let token = localStorage.getItem('token');
+    let jwtHelper = new JwtHelperService();
+
+    if (!token)
       return false;
 
-      let expirationDate = jwtHelper.getTokenExpirationDate(token);
-      let isExperied = jwtHelper.isTokenExpired(token);
-  
-      console.log('Expiration is ', expirationDate);
-      console.log('isExperied is ', isExperied);
-   
+    let expirationDate = jwtHelper.getTokenExpirationDate(token);
+    let isExperied = jwtHelper.isTokenExpired(token);
+
+    // console.log('Expiration is ', expirationDate);
+    // console.log('isExperied is ', isExperied);
+
     return !isExperied;
+  }
+
+  get currentUser() {
+    let token = localStorage.getItem('token');
+    if (!token) return null;
+
+    return  new JwtHelperService().decodeToken(token);
   }
 
 }
