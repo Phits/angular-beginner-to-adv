@@ -40,6 +40,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
     ])
   ],
   providers: [
+    JwtModule,
     OrderService,
 
     AuthService,
