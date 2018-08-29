@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../services/github.service';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs/observable/combineLatest';
-import { map } from 'rxjs/operators';
+// import { map } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 // import { Observable } from 'rxjs';
 
