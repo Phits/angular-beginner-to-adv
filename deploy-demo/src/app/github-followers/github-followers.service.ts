@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-// import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GithubFollowersService {
@@ -9,7 +9,7 @@ export class GithubFollowersService {
 
   constructor(private http: Http) {  }
 
-  getFollowers() { 
-    return this.http.get(this._url).pipe(switchMap(response => response.json()))
+  getFollowers() {
+    return this.http.get(this._url).pipe(switchMap(response => response.json()));
   }
 }
