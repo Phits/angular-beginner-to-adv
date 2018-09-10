@@ -1,13 +1,13 @@
-<!-- <div *ngFor="let follower of followers" class="media">
+<div *ngFor="let follower of followers" class="media">
   <div class="media-body">
     <h4 class="media-heading">
       <a [routerLink]="['/followers', follower.id, follower.login]">{{ follower.login }}</a>
     </h4>
     <a href="{{ follower.html_url }}">{{ follower.html_url }}</a>
   </div>
-</div> -->
+</div>
 
-<div *ngFor="let follower of followers" class="row">
+<!-- <div *ngFor="let follower of followers" class="row">
   <div class="col-md-2 margins">
     <img src="{{ follower.avatar_url }} " alt="Smiley face" height="42" width="42">
   </div>
@@ -15,4 +15,4 @@
     <h5><a [routerLink]="['/profile', follower.id, follower.login]">{{ follower.login }}</a></h5>
     <a href="{{ follower.html_url }}" target="_blank">{{ follower.html_url }}</a>
   </div>
-</div>
+</div> -->

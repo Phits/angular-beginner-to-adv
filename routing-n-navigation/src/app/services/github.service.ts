@@ -7,7 +7,7 @@ import { DataService } from './data.service';
 })
 export class GithubService extends DataService {
 
-  constructor(http: Http) { 
+  constructor(http: Http) {
 
     super('https://api.github.com/users/phits/followers', http);
   }

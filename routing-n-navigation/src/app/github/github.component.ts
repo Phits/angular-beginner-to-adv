@@ -18,7 +18,7 @@ export class GithubComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: GithubService) { 
+    private service: GithubService) {
   }
 
   ngOnInit() {

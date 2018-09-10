@@ -21,7 +21,6 @@ export class DataService {
 
     create(resource) {
         // return throwError(new AppError());
-        
         return this.http.post(this.url, JSON.stringify(resource))
         .pipe(map(response => response.json())).pipe(catchError((error) => {
             return this.handleError(error);
