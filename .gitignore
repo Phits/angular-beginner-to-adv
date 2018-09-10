@@ -4,7 +4,6 @@
 /dist
 /tmp
 /out-tsc
-/environments
 
 # dependencies
 /node_modules
@@ -33,16 +32,17 @@
 npm-debug.log
 testem.log
 /typings
-hello-world/package-lock.json
-directives/package-lock.json
-bootstrap-form/package-lock.json
-reactive-forms/package-lock.json
-consume-http-services/package-lock.json
-routing-n-navigation/package-lock.json
-blog-archives-routing/package-lock.json
-auth-demo/package-lock.json
-deploy-demo/package-lock.json
-firebase-demo/package-lock.json
+/hello-world/package-lock.json
+/directives/package-lock.json
+/bootstrap-form/package-lock.json
+/reactive-forms/package-lock.json
+/consume-http-services/package-lock.json
+/routing-n-navigation/package-lock.json
+/blog-archives-routing/package-lock.json
+/auth-demo/package-lock.json
+/deploy-demo/package-lock.json
+/firebase-demo/package-lock.json
+/firebase-demo//environments
 
 # e2e
 /e2e/*.js
