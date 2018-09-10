@@ -42,7 +42,7 @@ testem.log
 /auth-demo/package-lock.json
 /deploy-demo/package-lock.json
 /firebase-demo/package-lock.json
-/firebase-demo/environments/
+/firebase-demo/src/environments/
 
 # e2e
 /e2e/*.js
