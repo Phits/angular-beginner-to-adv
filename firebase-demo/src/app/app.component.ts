@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { FirebaseDatabase, FirebaseStorage } from 'angularfire2';
 // import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,15 +10,14 @@ import { FirebaseDatabase, FirebaseStorage } from 'angularfire2';
 })
 export class AppComponent {
   title = 'Firebase Demo';
-  courses$;
+  courses$: Observable<any[]>;
   course$;
   author$;
 
   // courses: any;
   // subscription: Subscription;
 
-  constructor(db: AngularFireDatabase) {
-
+  constructor(public db: AngularFireDatabase) {
     this.courses$ = db.list('/courses').valueChanges();
     this.course$ = db.object('/courses/1').valueChanges();
     this.author$ = db.object('/authors/1').valueChanges();
@@ -29,11 +27,10 @@ export class AppComponent {
     //   this.courses = courses;
     //   console.log(this.courses);
     //  });
-
   }
 
   add(course: HTMLInputElement) {
-    this.course$.set(course.value);
+    this.db.list('/courses').push({ content: course.value });
     course.value = '';
   }
 

@@ -42,7 +42,7 @@ blog-archives-routing/package-lock.json
 auth-demo/package-lock.json
 deploy-demo/package-lock.json
 firebase-demo/package-lock.json
-firebase-demo/src/environments/
+firebase-demo/src/environments/environment.ts
 
 # e2e
 /e2e/*.js
