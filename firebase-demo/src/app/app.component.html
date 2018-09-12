@@ -14,10 +14,20 @@
 
 <!-- <button (click)="ngOnDestroy()">Go Offline</button> -->
 
+<!-- <ul>
+  <li *ngFor="let course of courseskey$ | async">{{ course.key }}
+    <button (click)="update(course)">Update</button>
+  </li>
+</ul> -->
+
+
 <ul>
-  <li *ngFor="let course of courses$ | async">{{ course }}</li>
+  <li *ngFor="let course of courses$ | async">Key is {{ course.key }} and Data is {{ course.data.title }}
+    <button (click)="update(course)">Update</button> 
+    <button (click)="delete(course)">Delete</button>
+  </li>
 </ul>
 
-<p>{{ course$ | async | json }}</p>
+<!-- <p>{{ course$ | async | json }}</p> -->
 
 <p>{{ author$ | async | json }}</p>
