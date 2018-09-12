@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   add(course: HTMLInputElement) {
-    this.db.list('/courses').push({ content: course.value });
+    this.db.list('/courses').push(course.value);
     course.value = '';
   }
 
