@@ -1,2 +1,5 @@
 
-button { outline: 0 }
+button { 
+    text-align: left;
+    outline: 0 
+}

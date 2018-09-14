@@ -1,5 +1,7 @@
 import { expandCollapse } from './zippy.component.animations';
 import { Component, Input } from '@angular/core';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'zippy',
@@ -10,8 +12,10 @@ import { Component, Input } from '@angular/core';
 export class ZippyComponent  {
   @Input('title') title: string;
   isExpanded: boolean;
+  faArrowUp = faArrowUp;
+  faArrowDown = faArrowDown;
 
-  toggle() { 
+  toggle() {
     this.isExpanded = !this.isExpanded;
   }
 }

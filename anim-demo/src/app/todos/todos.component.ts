@@ -10,11 +10,11 @@ import { Component } from '@angular/core';
     trigger('todosAnimation', [
       transition(':enter', [
         group([
-          query('h1', [
-            style({ transform: 'translateY(-20px)' }),
+          query('h2', [
+            style({ transform: 'translateY(-20px)', opacity: '0'}),
             animate(1000)
           ]),
-          query('@todoAnimation', 
+          query('@todoAnimation',
             stagger(200, animateChild()))
         ])
       ])
