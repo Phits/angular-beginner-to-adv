@@ -11,6 +11,7 @@ export const expandCollapse = trigger('expandCollapse', [
   transition('collapsed => expanded', [
     animate('300ms ease-out', style({
       height: '*',
+      overflow: 'auto',
       paddingTop: '*',
       paddingBottom: '*'
     })),
