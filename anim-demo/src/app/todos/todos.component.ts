@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       transition(':enter', [
         group([
           query('h2', [
-            style({ transform: 'translateY(-20px)', opacity: '0'}),
+            style({ transform: 'translateY(-40px)', opacity: '0' }),
             animate(1000)
           ]),
           query('@todoAnimation',
@@ -38,13 +38,13 @@ import { Component } from '@angular/core';
 })
 export class TodosComponent {
   items: any[] = [
-    'Wash the dishes', 
-    'Call the accountant', 
+    'Wash the dishes',
+    'Call the accountant',
     'Apply for a car insurance'];
 
   addItem(input: HTMLInputElement) {
     this.items.splice(0, 0, input.value);
-    input.value = ''; 
+    input.value = '';
   }
 
   removeItem(item) {
