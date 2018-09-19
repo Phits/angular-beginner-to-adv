@@ -2,4 +2,47 @@
   {{ title }}
 </h1>
 
-<mat-checkbox>Subscribe to News Letter</mat-checkbox>
+<mat-form-field class="mat-form-field">
+  <input matInput [min]="minDate" [max]="maxDate"  [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker touchUi="true"></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Autosize textarea</mat-label>
+  <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="2"
+            cdkAutosizeMaxRows="5"></textarea>
+</mat-form-field>
+
+<br />
+
+<mat-form-field class="example-full-width">
+  <input ngModel #username="ngModel" name="username" matInput placeholder="Username" required>
+  <span matPrefix>admin.</span>
+  <mat-hint>Type Unique User Name</mat-hint>
+  <span matSuffix>@fitz.com</span>
+  <mat-error *ngIf="username.invalid && username.errors.required">User name is required.</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-select [(ngModel)]="color" placeholder="Favorite Color">
+    <mat-option *ngFor="let color of colors" [value]="color.id">
+      {{ color.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-radio-group class="example-radio-group" value="0">
+  <mat-radio-button class="example-radio-button" value="1">Male</mat-radio-button>
+  <mat-radio-button class="example-radio-button" value="0">Female</mat-radio-button>
+</mat-radio-group>
+
+<mat-checkbox #showdetails [value]="" [checked]="isChecked" (change)="onChange($event)" class="mat-checkbox">Show
+  Details</mat-checkbox>
+
+<div *ngIf="showdetails.checked">Some details...</div>
