@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, timer } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ export class AppComponent {
   timer;
   isLoading = false;
 
-  constructor() {
+  constructor(private dialog: MatDialog ) {
     this.isLoading = true;
     this.getCourses()
     .subscribe(x => this.isLoading = false);
@@ -20,6 +22,9 @@ export class AppComponent {
      this.progress++;
      if (this.progress === 100) {clearInterval(this.timer)}
     }, 20);
+
+
+
   }
 
   categories = [
@@ -40,6 +45,14 @@ export class AppComponent {
 
   minDate = new Date(2018, 1, 1);
   maxDate = new Date(2019, 1, 1);
+
+
+  openDialog() {
+    this.dialog.open(EditCourseComponent)
+    .afterClosed()
+    .subscribe(result => console.log(result)
+    );
+  }
 
   getCourses() {
     return timer(2000);
