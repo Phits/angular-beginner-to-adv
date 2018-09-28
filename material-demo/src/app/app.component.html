@@ -2,6 +2,11 @@
   {{ title }}
 </h1>
 
+<h2>
+ Heading H2
+</h2>
+
+
 <mat-icon>home</mat-icon>
 
 <br /><br />
@@ -20,9 +25,9 @@
 <br /><br />
 
 <mat-tab-group>
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab label="Second"> Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
+  <mat-tab label="First">Content 1 </mat-tab>
+  <mat-tab label="Second">Content 2 </mat-tab>
+  <mat-tab label="Third">Content 3 </mat-tab>
 </mat-tab-group>
 
 <br /><br />
@@ -40,7 +45,9 @@
   <mat-chip (click)="selectCategory(category)" [selected]="category.selected" *ngFor="let category of categories" >{{ category.name }}</mat-chip>
 </mat-chip-list>
 
-<h3>Raised Buttons</h3>
+<br /><br />
+
+<h3 class="mat-headline">Raised Buttons</h3>
 <div class="button-row">
   <button mat-raised-button>Basic</button>
   <button mat-raised-button color="primary">Primary</button>
