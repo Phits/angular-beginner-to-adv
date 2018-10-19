@@ -20,11 +20,10 @@ export class AppComponent {
 
     this.timer = setInterval(() => {
      this.progress++;
-     if (this.progress === 100) {clearInterval(this.timer)}
+     if (this.progress === 100) {
+       clearInterval(this.timer);
+      }
     }, 20);
-
-
-
   }
 
   categories = [
