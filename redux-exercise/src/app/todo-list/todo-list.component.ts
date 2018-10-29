@@ -8,7 +8,7 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent {
   // Read the comment in TodoService
-  constructor(private service: TodoService) { 
+  constructor(private service: TodoService) {
   }
 
   addTodo(input) {
