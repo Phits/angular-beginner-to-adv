@@ -26,10 +26,10 @@ export class GithubFollowersService {
   private handleError(error: Response) {
 
     if (error.status === 400)
-      return throwError(new NotFoundError())
+      return throwError(new NotFoundError());
 
     if (error.status === 404)
-      return throwError(new NotFoundError())
+      return throwError(new NotFoundError());
 
     return throwError(new AppError(error));
 
