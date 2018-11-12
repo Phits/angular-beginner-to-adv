@@ -16,7 +16,7 @@ export class TodoService {
   }
 
   getTodosPromise() {
-    return this.http.get('...').pipe(map(r => r.json().toPromise()));
+    return this.http.get('...').pipe(map(r => r.json())).toPromise();
     // return this.http.get('...').map(r => r.json()).toPromise();
   }
 
