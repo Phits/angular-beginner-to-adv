@@ -43,6 +43,7 @@ auth-demo/package-lock.json
 deploy-demo/package-lock.json
 firebase-demo/package-lock.json
 firebase-demo/src/environments/environment.ts
+oshop-getting-started/.firebase/
 
 # e2e
 /e2e/*.js
