@@ -7,18 +7,15 @@
   <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
         <a class="nav-link" routerLink="/shopping-cart">Shopping Cart <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle>Files</a>
+        <a class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle>Username</a>
         <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
             <a class="dropdown-item" routerLink="my-orders">My Orders</a>
             <a class="dropdown-item" routerLink="admin/orders">Manage Orders</a>
             <a class="dropdown-item" routerLink="admin/products">Manage Products</a>
-            <a class="dropdown-item" routerLink="login">Log Out</a>
+            <a class="dropdown-item">Log Out</a>
         </div>
       </li>
     </ul>
